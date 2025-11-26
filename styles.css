@@ -32,12 +32,14 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
 }
 
 .logo h1 {
     font-size: 1.8rem;
 }
 
+/* Navegación Desktop */
 .nav ul {
     display: flex;
     list-style: none;
@@ -51,10 +53,17 @@ body {
     color: white;
     text-decoration: none;
     transition: color 0.3s;
+    font-weight: 500;
 }
 
 .nav ul li a:hover {
     color: #D4AF37;
+}
+
+/* carrito */
+
+.cart {
+    margin-left: auto;
 }
 
 .cart button {
@@ -65,7 +74,35 @@ body {
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
+    transition: background 0.3s;
 }
+
+.cart button:hover {
+    background: #e6c04d;
+}
+
+/* Menú Hamburguesa para Móviles */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 5px;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+
+
+
 
 /* Hero Section */
 .hero {
@@ -275,22 +312,26 @@ body {
     margin-bottom: 3rem;
 }
 
+.contact-content h3 {
+    color: #D4AF37;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.contact-content p {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
 .contacto-flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.contacto-formulario {
-    width: 50%;
-}
-
-.contacto-ubicacion {
-    width: 50%;
-}
-
 .contact-form {
-
+    width: 400px;
     max-width: 500px;
     margin: 0 auto;
 }
@@ -313,6 +354,146 @@ body {
     cursor: pointer;
     font-weight: bold;
 }
+
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.location h3 {
+    color: #D4AF37;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.location p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.location {
+    width: 400px;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+}
+
+.map-container {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.map-container iframe {
+    display: block;
+    border: none;
+}
+
+/* Responsive para la sección contacto */
+@media (max-width: 768px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .location {
+        order: -1; /* El mapa va primero en móviles */
+    }
+    
+    .map-container iframe {
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-content {
+        gap: 1.5rem;
+    }
+    
+    .map-container iframe {
+        height: 200px;
+    }
+}
+
+/* Redes Sociales */
+.social-media {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.social-media h3 {
+    color: #D4AF37;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.3s ease;
+    padding: 0.5rem;
+}
+
+.social-link:hover {
+    transform: translateY(-5px);
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover .social-icon {
+    transform: scale(1.1);
+}
+
+/* Responsive para redes sociales */
+@media (max-width: 768px) {
+    .social-icons {
+        gap: 1rem;
+    }
+    
+    .social-icon {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .social-link span {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .social-icons {
+        gap: 0.8rem;
+    }
+    
+    .social-icon {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .social-link {
+        padding: 0.3rem;
+    }
+}
+
+
 
 /* Footer */
 .footer {
@@ -372,7 +553,9 @@ body {
     margin-top: 1rem;
 }
 
-/* Responsive */
+
+
+/* Responsive 
 @media (max-width: 768px) {
     .header .container {
         flex-direction: column;
@@ -389,5 +572,126 @@ body {
     
     .hero-content h2 {
         font-size: 2rem;
+    }
+}
+*/
+
+/* ========================================= */
+/* MEDIA QUERIES - RESPONSIVE PARA MÓVILES */
+/* ========================================= */
+
+@media (max-width: 768px) {
+    .header .container {
+        flex-wrap: wrap;
+    }
+    
+    /* Menú Hamburguesa */
+    .menu-toggle {
+        display: flex;
+    }
+    
+    /* Navegación para móviles */
+    .nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #4A2C2A;
+        display: none;
+        flex-direction: column;
+        padding: 1rem 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    }
+    
+    .nav.active {
+        display: flex;
+    }
+    
+    .nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .nav ul li {
+        margin: 0;
+        text-align: center;
+    }
+    
+    .nav ul li a {
+        display: block;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .nav ul li:last-child a {
+        border-bottom: none;
+    }
+    
+    /* Animación del menú hamburguesa */
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .menu-toggle.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+    
+    /* Ajustes de contenido para móviles */
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 2rem;
+        padding: 0 1rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .products h2,
+    .about h2,
+    .contact h2 {
+        font-size: 2rem;
+    }
+    
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .product-card {
+        padding: 1.5rem;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .cta-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .product-card {
+        padding: 1rem;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+        padding: 1.5rem;
     }
 }
