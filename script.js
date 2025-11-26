@@ -70,6 +70,27 @@ function closeCartModal() {
     cartModal.style.display = 'none';
 }
 
+// Función para el menú móvil responsive
+function initMobileMenu() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+    
+    if (menuToggle && nav) {
+        menuToggle.addEventListener('click', function() {
+            nav.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+        
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                nav.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+    }
+}
+
 // Event Listeners
 cartBtn.addEventListener('click', openCartModal);
 closeModal.addEventListener('click', closeCartModal);
@@ -123,6 +144,7 @@ document.querySelector('.contact-form').addEventListener('submit', function(e) {
 // Inicializar
 document.addEventListener('DOMContentLoaded', function() {
     updateCart();
+    initMobileMenu(); // <-- Esta es la línea nueva que se añade
     
     // Smooth scroll para links del menú
     document.querySelectorAll('.nav a').forEach(link => {
