@@ -400,7 +400,12 @@ body {
     }
     
     .location {
+        width: 300px;
         order: -1; /* El mapa va primero en móviles */
+    }
+
+    .contact-form {
+        width: 300px;
     }
     
     .map-container iframe {
